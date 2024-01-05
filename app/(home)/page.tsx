@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,36 +9,13 @@ import {
   Focus,
   FolderKanban,
   Paintbrush,
-  SearchCode,
+  Binary,
   Shapes,
   ArrowRight,
   Search,
 } from "lucide-react";
-import {
-  TextInput,
-  Accordion,
-  AccordionHeader,
-  AccordionBody,
-  AccordionList,
-} from "@tremor/react";
-
-const categories = [
-  {
-    icon: <Pen className="w-5" />,
-    name: "Writing",
-    courses: [
-      {
-        name: "Intro to Creative Writing",
-        slug: "intro-to-creative-writing",
-      },
-      {
-        name: "Advanced Writing",
-        slug: "advanced-writing",
-      },
-    ],
-    color: "#82C0CC",
-  },
-];
+import CourseExplore from "@/components/course-explore";
+import { defaultCategories } from "@/components/categories";
 
 // import {StlViewer} from "react-stl-viewer";
 
@@ -59,7 +34,22 @@ const supporters = [
   },
 ];
 
-export default function IndexPage({}) {
+export default async function IndexPage({}) {
+  const categories = [...defaultCategories];
+
+  const courses = await prisma.course.findMany({});
+
+  courses.forEach((element) => {
+    let a =
+      categories[
+        categories.indexOf(
+          categories.filter((i: any) => i.name == element.category)[0],
+        )
+      ];
+
+    a.courses.push(element);
+  });
+
   return (
     <>
       <section className="bg-white dark:bg-gray-900">
@@ -111,43 +101,7 @@ export default function IndexPage({}) {
         </div>
       </section>
 
-      <section className="bg-white py-16 dark:bg-gray-900">
-        <div className="mx-auto max-w-sm py-4">
-          <h2 className="mb-4 text-center text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-            Explore Courses
-          </h2>
-          <TextInput
-            icon={Search}
-            placeholder="What would you like to learn?"
-          />
-        </div>
-        <div className="mx-auto grid max-w-5xl grid-cols-3 gap-2">
-          {categories.map((i, n) => {
-            return (
-              <Accordion key={n} className="h-min">
-                <AccordionHeader>
-                  {/* <div className="rounded-full aspect-square" style={{ background: i.color }}> */}
-                  {i.icon}
-                  {/* </div> */}
-                  <div className="w-2" />
-                  {i.name}
-                </AccordionHeader>
-                <AccordionBody>
-                  <ul>
-                    {i.courses.map((j, m) => {
-                      return (
-                        <li key={m}>
-                          <a href={`/courses/${j.slug}`}>{j.name}</a>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </AccordionBody>
-              </Accordion>
-            );
-          })}
-        </div>
-      </section>
+      <CourseExplore categories={categories} />
 
       <section className="bg-white dark:bg-gray-900">
         <div className="mx-auto max-w-screen-xl items-center gap-16 px-4 py-8 lg:grid lg:grid-cols-2 lg:px-6 lg:py-16">
@@ -167,7 +121,6 @@ export default function IndexPage({}) {
               new way of learning—one that&apos;s hands-on, fun, and totally
               immersive.
             </p>
-            <p></p>
           </div>
         </div>
       </section>
