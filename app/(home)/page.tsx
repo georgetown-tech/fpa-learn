@@ -173,15 +173,26 @@ export default async function IndexPage({}) {
               {[
                 {
                   question:
-                    "Will ReRoto continue to get updated on a consistent basis?",
+                    "How are the courses structured—what levels or tiers of expertise do they cater to?",
                   answer:
-                    "We understand that an important aspect in choosing a CMS is that it will be updated consistently. Because of this, we have a public roadmap of new features that we are looking to add to ReRoto, as well as the dates when they will be implemented.",
+                    "The courses within the Fairfield Programming Association are meticulously structured to accommodate various levels of expertise. We offer a tiered approach that caters to beginners, intermediate learners, and those seeking advanced knowledge. Each tier is designed to provide a progressive learning experience, starting with foundational concepts and gradually advancing to more complex topics. Whether you're just starting your programming journey or looking to expand your existing skills, our structured courses ensure there's a suitable path for every level of expertise.",
+                },
+                {
+                  question:
+                    "Could you describe the teaching methodology used within the FPA?",
+                  answer:
+                    "We focus on interactive and project-based learning at the Fairfield Programming Association. Our classes involve hands-on activities, group projects, and real-world problem-solving. Through this approach, students actively engage with the material, collaborate with peers, and apply their knowledge to practical situations, preparing them for the challenges they'll face in the field.",
+                },
+                {
+                  question:
+                    "How often are the courses updated to keep up with industry trends?",
+                  answer:
+                    "Our courses are regularly updated to align with the latest industry trends. We prioritize staying current with the ever-evolving landscape of technology and programming. Our team consistently reviews and revises course content to ensure that students receive up-to-date information, equipping them with relevant skills and knowledge demanded by the industry. This commitment to frequent updates enables us to offer a curriculum that remains in sync with the latest advancements and trends in the programming field.",
                 },
               ].map((data, i) => (
                 <details
                   key={i}
                   className="group py-8 [&_summary::-webkit-details-marker]:hidden"
-                  open
                 >
                   <summary className="flex cursor-pointer items-center justify-between text-gray-900">
                     <h2 className="text-lg font-medium">{data.question}</h2>
