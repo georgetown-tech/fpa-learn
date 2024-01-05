@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import CourseExplore from "@/components/course-explore";
 import { defaultCategories } from "@/components/categories";
+import QuizComponent from "@/components/article/quiz";
 
 // import {StlViewer} from "react-stl-viewer";
 
@@ -105,7 +106,54 @@ export default async function IndexPage({}) {
 
       <section className="bg-white dark:bg-gray-900">
         <div className="mx-auto max-w-screen-xl items-center gap-16 px-4 py-8 lg:grid lg:grid-cols-2 lg:px-6 lg:py-16">
-          <div className=""></div>
+          <div className="">
+            <QuizComponent
+              questions={[
+                {
+                  questionText: "What color is the sun?",
+                  options: [
+                    {
+                      text: "Red",
+                      isCorrect: false,
+                    },
+                    {
+                      text: "Green",
+                      isCorrect: false,
+                    },
+                    {
+                      text: "Yellow",
+                      isCorrect: false,
+                    },
+                    {
+                      text: "White",
+                      isCorrect: true,
+                    },
+                  ],
+                },
+                {
+                  questionText: "What's my favorite color?",
+                  options: [
+                    {
+                      text: "Red",
+                      isCorrect: false,
+                    },
+                    {
+                      text: "Green",
+                      isCorrect: true,
+                    },
+                    {
+                      text: "Blue",
+                      isCorrect: true,
+                    },
+                    {
+                      text: "Black",
+                      isCorrect: false,
+                    },
+                  ],
+                },
+              ]}
+            />
+          </div>
           <div className="font-light text-gray-500 dark:text-gray-400 sm:text-lg">
             <h2 className="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
               Interactive Learning Tools Built-in
@@ -159,7 +207,6 @@ export default async function IndexPage({}) {
           </div>
         </div>
       </section>
-
       <section>
         <hr />
       </section>
