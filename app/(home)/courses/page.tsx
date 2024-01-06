@@ -36,7 +36,7 @@ const style = {
 
 export default async function IndexPage({}) {
   const courses = await prisma.course.findMany({});
-  const categories = [...defaultCategories]
+  const categories = [...defaultCategories];
 
   courses.forEach((element) => {
     let a =

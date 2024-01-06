@@ -5,15 +5,15 @@ import { Providers } from "./providers";
 import { Metadata } from "next";
 import { cn } from "@/lib/utils";
 
-const title = "ReRoto – Elevate Your Newsroom Efficiency";
+const title = "The Fairfield Programming Association";
 const description =
-  "Discover seamless collaboration, streamlined workflows, and unparalleled editorial control— ReRoto CMS, empowering your newsroom.";
-const image = "https://reroto.com/thumbnail.png";
+  "The FPA empowers learners with interactive, hands-on educational resources tailored for beginners and experts alike.";
+const image = "https://fairfieldprogramming.org/thumbnail.png";
 
 export const metadata: Metadata = {
   title,
   description,
-  icons: ["https://reroto.com/favicon.ico"],
+  icons: ["https://fairfieldprogramming.org/favicon.ico"],
   openGraph: {
     title,
     description,
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     title,
     description,
     images: [image],
-    creator: "@reroto",
+    creator: "@fairfieldprogramming",
   },
-  metadataBase: new URL("https://reroto.com"),
+  metadataBase: new URL("https://fairfieldprogramming.org"),
 };
 
 export default function RootLayout({

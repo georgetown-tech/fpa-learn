@@ -48,7 +48,7 @@ export default function CourseSection({
             </div>
           </div>
         </div>
-        <div className="h-48 hidden md:block overflow-hidden rounded-lg bg-gray-100 shadow-lg lg:h-auto xl:w-5/12">
+        <div className="hidden h-48 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:block lg:h-auto xl:w-5/12">
           <img
             src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&q=75&fit=crop&w=1000"
             loading="lazy"
