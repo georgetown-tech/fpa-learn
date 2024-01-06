@@ -29,7 +29,7 @@ import {
   useSelectedLayoutSegments,
 } from "next/navigation";
 import { ReactNode, useEffect, useMemo, useState } from "react";
-import { getSiteFromPostId } from "@/lib/actions";
+// import { getSiteFromPostId } from "@/lib/actions";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 
@@ -41,9 +41,9 @@ export default function Nav({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (segments[0] === "post" && id) {
-      getSiteFromPostId(id).then((id) => {
-        setSiteId(id);
-      });
+      // getSiteFromPostId(id).then((id) => {
+      //   setSiteId(id);
+      // });
     }
   }, [segments, id]);
 

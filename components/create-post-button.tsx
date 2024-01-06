@@ -1,7 +1,7 @@
 "use client";
 
 import { useTransition } from "react";
-import { createPost } from "@/lib/actions";
+// import { createPost } from "@/lib/actions";
 import { cn } from "@/lib/utils";
 import { useParams, useRouter } from "next/navigation";
 import LoadingDots from "@/components/icons/loading-dots";
@@ -16,10 +16,10 @@ export default function CreatePostButton({ id }: { id: any }) {
     <button
       onClick={() =>
         startTransition(async () => {
-          const post = await createPost(null, id, null);
-          va.track("Created Post");
-          router.refresh();
-          router.push(`/post/${post.id}`);
+          // const post = await createPost(null, id, null);
+          // va.track("Created Post");
+          // router.refresh();
+          // router.push(`/post/${post.id}`);
         })
       }
       className={cn(
