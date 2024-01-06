@@ -106,7 +106,7 @@ export default async function IndexPage({}) {
 
       <section className="bg-white dark:bg-gray-900">
         <div className="mx-auto max-w-screen-xl items-center gap-16 px-4 py-8 lg:grid lg:grid-cols-2 lg:px-6 lg:py-16">
-          <div className="">
+          <div className="hidden lg:block">
             <QuizComponent
               questions={[
                 {

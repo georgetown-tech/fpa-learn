@@ -18,13 +18,13 @@ export default function CourseExplore({
 }) {
   return (
     <section className="bg-white py-16 dark:bg-gray-900">
-      <div className="mx-auto max-w-sm py-4">
+      <div className="mx-auto max-w-sm p-2">
         <h2 className="mb-4 text-center text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
           Explore Courses
         </h2>
         <TextInput icon={Search} placeholder="What would you like to learn?" />
       </div>
-      <div className="mx-auto grid max-w-5xl grid-cols-3 gap-2">
+      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-2 p-2 md:grid-cols-2 lg:grid-cols-3">
         {categories.map((i, n) => {
           return (
             <Accordion key={n} className="h-min">
