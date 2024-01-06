@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { visit } from "unist-util-visit";
-import type { Example, PrismaClient } from "@prisma/client";
+import type { PrismaClient } from "@prisma/client";
 import { ReactNode } from "react";
 
 export function replaceLinks({
@@ -102,15 +102,15 @@ export function replaceExamples(prisma: PrismaClient) {
 async function getExamples(node: any, prisma: PrismaClient) {
   const names = node?.attributes[0].value.split(",");
 
-  const data = new Array<Example | null>();
+  const data = new Array<null>();
 
   for (let i = 0; i < names.length; i++) {
-    const results = await prisma.example.findUnique({
-      where: {
-        id: parseInt(names[i]),
-      },
-    });
-    data.push(results);
+    // const results = await prisma.example.findUnique({
+    //   where: {
+    //     id: parseInt(names[i]),
+    //   },
+    // });
+    // data.push();
   }
 
   return JSON.stringify(data);
