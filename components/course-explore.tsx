@@ -26,6 +26,8 @@ export default function CourseExplore({
       </div>
       <div className="mx-auto grid max-w-5xl grid-cols-1 gap-2 p-2 md:grid-cols-2 lg:grid-cols-3">
         {categories.map((i, n) => {
+          if (i.courses.length == 0) return <></>;
+
           return (
             <Accordion key={n} className="h-min">
               <AccordionHeader>

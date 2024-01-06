@@ -58,6 +58,8 @@ export default function CourseSection({
         </div>
       </section>
       {categories.map((i, n) => {
+        if (i.courses.length == 0) return <></>;
+
         return (
           <div className="bg-white py-6 sm:py-8 lg:py-12" key={n}>
             <div className="mx-auto max-w-screen-xl px-4 md:px-8">
