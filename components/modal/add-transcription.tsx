@@ -1,7 +1,7 @@
 "use client";
 
 import { toast } from "sonner";
-import { createTranscript } from "@/lib/actions";
+// import { createTranscript } from "@/lib/actions";
 import { useRouter } from "next/navigation";
 import { useFormStatus } from "react-dom";
 import { cn } from "@/lib/utils";
@@ -23,20 +23,20 @@ export default function CreateTranscriptionModal() {
 
   return (
     <form
-      action={async (data: FormData) =>
-        createTranscript(data).then((res: any) => {
-          if (res.error) {
-            toast.error(res.error);
-          } else {
-            va.track("Created Transcription");
-            const { id } = res;
-            modal?.hide();
-            router.refresh();
-            router.push(`/transcribe/${id}`);
-            toast.success(`Successfully added transcription!`);
-          }
-        })
-      }
+      // action={async (data: FormData) =>
+      //   createTranscript(data).then((res: any) => {
+      //     if (res.error) {
+      //       toast.error(res.error);
+      //     } else {
+      //       va.track("Created Transcription");
+      //       const { id } = res;
+      //       modal?.hide();
+      //       router.refresh();
+      //       router.push(`/transcribe/${id}`);
+      //       toast.success(`Successfully added transcription!`);
+      //     }
+      //   })
+      // }
       className="w-full rounded-md bg-white dark:bg-black md:max-w-md md:border md:border-stone-200 md:shadow dark:md:border-stone-700"
     >
       <div className="relative flex flex-col space-y-4 p-5 md:p-10">
