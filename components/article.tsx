@@ -8,7 +8,7 @@ export default function Course({ data }: { data: Article }) {
   return (
     <div className="relative rounded-lg border border-stone-200  shadow-md transition-all hover:shadow-xl dark:border-stone-700 dark:hover:border-white">
       <Link
-        href={`/article/${data.slug}`}
+        href={`/articles/${data.slug}`}
         className="flex flex-col overflow-hidden rounded-lg"
       >
         <BlurImage
