@@ -25,6 +25,8 @@ import Course from "@/components/course";
 import CourseSection from "@/components/course-section";
 import { defaultCategories } from "@/components/categories";
 import BlurImage from "@/components/blur-image";
+import { ArticleType } from "@prisma/client";
+import Article from "@/components/article";
 
 // import {StlViewer} from "react-stl-viewer";
 
@@ -46,9 +48,33 @@ export default async function IndexPage({
       slug: slug,
     },
     include: {
-      articles: true,
       chapters: true,
     },
+  });
+
+  if (course == null) return <>Implement 404 Page.</>;
+
+  const articles = await prisma.article.findMany({
+    where: {
+      courseId: course.id,
+    },
+    include: {
+      user: true,
+    },
+  });
+
+  let chapters = [...course.chapters];
+  let chapterContent: Array<Array<ArticleType>> = [];
+
+  // Fill in chapter content
+  chapters.forEach((i, n) => (chapterContent[n] = []));
+
+  articles.forEach((i) => {
+    let mapChapId = chapters.indexOf(
+      chapters.filter((j) => j.id == i.chapterId)[0],
+    );
+
+    chapterContent[mapChapId].push(i);
   });
 
   return (
@@ -113,24 +139,9 @@ export default async function IndexPage({
                 {i.description}
               </p>
               <div className="grid grid-cols-2 gap-x-4 gap-y-6 sm:gap-y-8 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-12">
-                <div className="flex flex-col items-center gap-2 sm:flex-row md:gap-4">
-                  <div className="h-24 w-24 overflow-hidden rounded-full bg-gray-100 shadow-lg md:h-32 md:w-32">
-                    <img
-                      src="https://images.unsplash.com/photo-1567515004624-219c11d31f2e??auto=format&q=75&fit=crop&w=256"
-                      loading="lazy"
-                      alt="Photo by Radu Florin"
-                      className="h-full w-full object-cover object-center"
-                    />
-                  </div>
-                  <div>
-                    <div className="text-center font-bold text-indigo-500 sm:text-left md:text-lg">
-                      John McCulling
-                    </div>
-                    <p className="text-center text-sm text-gray-500 sm:text-left md:text-base">
-                      Founder / CEO
-                    </p>
-                  </div>
-                </div>
+                {chapterContent[n].map((j, m) => (
+                  <Article key={m} data={j} />
+                ))}
               </div>
             </div>
           </section>

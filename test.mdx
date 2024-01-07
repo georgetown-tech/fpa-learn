@@ -82,20 +82,3 @@ Let's reinforce your understanding with a quick quiz about the "Hello World" pro
     },
   ]}
 />
-
-INSERT INTO "Article" (id, title, description, content, slug, image, "imageBlurhash", "createdAt", "updatedAt", published, "courseId", "userId", "chapterId")
-VALUES (
-'ck3a9d8io0000fjzupcxvl1tn', -- Generate a unique ID using cuid()
-'Hello World in JavaScript', -- Title of the article
-'Starting out our JavaScript adventure with logging "Hello World" to the console.', -- Description of the article
-'This is a really basic article content. It will be filled in later.', -- Content of the article
-'ck3a9d8io0001fjzupgyew9s9', -- Generate a unique slug using cuid()
-'https://images.unsplash.com/photo-1704510204319-16a1ae46d16b?q=80&w=2940', -- Image link
-'data:image/png;base64,YourBase64EncodedImage', -- Image Blurhash
-now(), -- Current timestamp for createdAt
-now(), -- Current timestamp for updatedAt
-true, -- Mark as published (true/false)
-'cjlr9zlg70000fjzup4y0t12w', -- Course ID (if applicable)
-'', -- User ID (if applicable)
-'ck36b9fy30000fjzup6oswblf' -- Chapter ID (if applicable)
-);
