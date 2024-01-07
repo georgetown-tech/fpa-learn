@@ -110,6 +110,7 @@ export default async function IndexPage({}) {
             <QuizComponent
               questions={[
                 {
+                  type: "radio",
                   questionText: "What color is the sun?",
                   options: [
                     {
@@ -131,6 +132,7 @@ export default async function IndexPage({}) {
                   ],
                 },
                 {
+                  type: "radio",
                   questionText: "What's my favorite color?",
                   options: [
                     {

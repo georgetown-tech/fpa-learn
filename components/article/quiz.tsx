@@ -7,15 +7,15 @@ import { Check, X } from "lucide-react";
 interface Option {
   text: string;
   isCorrect: boolean;
-  correctResponse: string;
-  incorrectResponse: string;
+  correctResponse?: string;
+  incorrectResponse?: string;
 }
 
 interface Text {
   match: RegExp;
   isCorrect: boolean;
-  correctResponse: string;
-  incorrectResponse: string;
+  correctResponse?: string;
+  incorrectResponse?: string;
 }
 
 interface Question {
