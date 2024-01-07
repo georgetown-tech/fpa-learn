@@ -25,7 +25,7 @@ import Course from "@/components/course";
 import CourseSection from "@/components/course-section";
 import { defaultCategories } from "@/components/categories";
 import BlurImage from "@/components/blur-image";
-import { ArticleType } from "@prisma/client";
+import { Article as ArticleType } from "@prisma/client";
 import Article from "@/components/article";
 
 // import {StlViewer} from "react-stl-viewer";
