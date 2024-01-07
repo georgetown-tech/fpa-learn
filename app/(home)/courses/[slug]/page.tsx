@@ -122,7 +122,6 @@ export default async function IndexPage({
                       className="h-full w-full object-cover object-center"
                     />
                   </div>
-
                   <div>
                     <div className="text-center font-bold text-indigo-500 sm:text-left md:text-lg">
                       John McCulling

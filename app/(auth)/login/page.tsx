@@ -5,7 +5,7 @@ import Logo from "@/res/logo.svg";
 
 export default function LoginPage() {
   return (
-    <div className="mx-5 border border-stone-200 py-10 dark:border-stone-700 sm:mx-auto sm:w-full sm:max-w-md sm:rounded-lg sm:shadow-md">
+    <div className="z-50 mx-5 border border-stone-200 bg-white py-10 dark:border-stone-700 sm:mx-auto sm:w-full sm:max-w-md sm:rounded-lg sm:shadow-md">
       <Image
         className="mx-auto h-16 w-max"
         objectFit="cover"

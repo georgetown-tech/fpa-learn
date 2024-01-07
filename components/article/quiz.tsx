@@ -7,11 +7,22 @@ import { Check, X } from "lucide-react";
 interface Option {
   text: string;
   isCorrect: boolean;
+  correctResponse: string;
+  incorrectResponse: string;
+}
+
+interface Text {
+  match: RegExp;
+  isCorrect: boolean;
+  correctResponse: string;
+  incorrectResponse: string;
 }
 
 interface Question {
+  type: "radio" | "select" | "text";
   questionText: string;
-  options: Option[];
+  options?: Option[];
+  text?: Text[];
 }
 
 interface QuizProps {
@@ -37,7 +48,8 @@ const QuizComponent: React.FC<QuizProps> = ({ questions }) => {
 
   const checkAnswer = (questionIndex: number, selectedOption: string) => {
     const isCorrect =
-      questions[questionIndex].options[parseInt(selectedOption)].isCorrect;
+      questions[questionIndex].options?.[parseInt(selectedOption)]?.isCorrect ||
+      false;
     const updatedResults = [...results];
     updatedResults[questionIndex] = isCorrect;
     setResults(updatedResults);
@@ -46,7 +58,7 @@ const QuizComponent: React.FC<QuizProps> = ({ questions }) => {
 
   return (
     <div className="relative w-full rounded-lg border bg-white p-4 shadow-lg">
-      {showConfetti && <Confetti className="w-full h-full" recycle={false} />}
+      {showConfetti && <Confetti className="h-full w-full" recycle={false} />}
       {/* Show confetti for correct answers */}
       {questions.map((question, index) => (
         <div
@@ -60,7 +72,7 @@ const QuizComponent: React.FC<QuizProps> = ({ questions }) => {
             </div>
           </div>
           <div className="space-y-2">
-            {question.options.map((option, optionIndex) => (
+            {question.options?.map((option, optionIndex) => (
               <div key={optionIndex}>
                 <label className="flex items-center space-x-2">
                   <input

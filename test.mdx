@@ -1,0 +1,101 @@
+import QuizComponent from "./components/article/quiz";
+
+# Getting Started with "Hello World" in JavaScript
+
+JavaScript, often referred to as the language of the web, is a versatile and powerful tool used for creating interactive websites and web applications. It serves as the backbone of modern web development. Let's begin our journey into JavaScript with a classic: the "Hello World" program.
+
+## What is "Hello World"?
+
+"Hello World" is a time-honored tradition in programming. It's a simple introductory program that displays the phrase "Hello, World!" on the screen. While it may seem basic, it's a fundamental first step for beginners to grasp the syntax and structure of a programming language.
+
+## Writing "Hello World" in JavaScript
+
+In JavaScript, you can create a "Hello World" program with just a single line of code:
+
+```javascript
+console.log("Hello, World!");
+```
+
+Here's a breakdown of this line:
+
+- `console` refers to the console object, which provides access to the browser's debugging console.
+- `log()` is a method of the console object used to display messages or data in the console.
+- `'Hello, World!'` is the text string that will be displayed in the console.
+
+## Understanding the Code
+
+The `console.log()` statement is commonly used for debugging and displaying information while developing JavaScript applications. In this case, it outputs the specified text to the console.
+
+## Quiz Time!
+
+Let's reinforce your understanding with a quick quiz about the "Hello World" program in JavaScript.
+
+<QuizComponent
+  questions={[
+    {
+      type: "radio",
+      questionText: "What is the purpose of `console.log()` in JavaScript?",
+      options: [
+        {
+          text: "To display text in the console.",
+          isCorrect: true,
+          correctResponse:
+            "Correct! console.log() outputs text to the console.",
+        },
+        {
+          text: "To add numbers together.",
+          isCorrect: false,
+          correctResponse: "",
+          incorrectResponse: "",
+        },
+        {
+          text: "To play audio files on a website.",
+          isCorrect: false,
+          correctResponse: "",
+          incorrectResponse: "",
+        },
+        {
+          text: "To read your computer's logs.",
+          isCorrect: false,
+          correctResponse: "",
+          incorrectResponse: "",
+        },
+      ],
+    },
+    {
+      type: "text",
+      questionText: 'What is the output of `console.log("Hi Jane!")`?',
+      text: [
+        {
+          match: "Hi Jane!",
+          isCorrect: true,
+          correctResponse:
+            "Correct! Everything inside of the double quotes will be printed.",
+        },
+        {
+          match: ".*",
+          isCorrect: false,
+          correctResponse:
+            'The `console.log` statement should output, "Hi Jane!"',
+        },
+      ],
+    },
+  ]}
+/>
+
+INSERT INTO "Article" (id, title, description, content, slug, image, "imageBlurhash", "createdAt", "updatedAt", published, "courseId", "userId", "chapterId")
+VALUES (
+'ck3a9d8io0000fjzupcxvl1tn', -- Generate a unique ID using cuid()
+'Hello World in JavaScript', -- Title of the article
+'Starting out our JavaScript adventure with logging "Hello World" to the console.', -- Description of the article
+'This is a really basic article content. It will be filled in later.', -- Content of the article
+'ck3a9d8io0001fjzupgyew9s9', -- Generate a unique slug using cuid()
+'https://images.unsplash.com/photo-1704510204319-16a1ae46d16b?q=80&w=2940', -- Image link
+'data:image/png;base64,YourBase64EncodedImage', -- Image Blurhash
+now(), -- Current timestamp for createdAt
+now(), -- Current timestamp for updatedAt
+true, -- Mark as published (true/false)
+'cjlr9zlg70000fjzup4y0t12w', -- Course ID (if applicable)
+'', -- User ID (if applicable)
+'ck36b9fy30000fjzup6oswblf' -- Chapter ID (if applicable)
+);
